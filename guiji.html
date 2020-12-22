@@ -1,11 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>首页</title>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible"/>
+    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1"
+    />
+    <title>基于来校人员轨迹的管理</title>
+    <script src="Build/Cesium/Cesium.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="guiji.js" ></script>
+    <style>
+        @import url(Build/Cesium/Widgets/widgets.css);
+        @import url(Sandcastle/templates/bucket.css);
+        html, body
+        {
+            padding: 0;
+            margin: 0;
+        }
+        #cesiumContainer {
+            float:right;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
 </head>
+
 <body>
-    <h1>这里显示轨迹信息</h1>
+
+
+
+<div id="cesiumContainer">
+    <a href="shouye.html" target="shouye">首页</a>
+    <a href="weilan.html" target="shouye">电子围栏</a>
+    <a href="guiji.html" target="shouye">历史轨迹</a>
+    <a href="wenshidu.html" target="shouye">温湿度</a>
+    <a href="jiankong.html" target="shouye">监控视频</a>
+</div>
+<span id="bar">
+
+		</span>
+
+<script>
+    var viewer = new Cesium.Viewer("cesiumContainer",{
+        geocoder:false,
+        homeButton:false,
+        sceneModePicker:false,
+    });
+    viewer.scene.globe.enableLighting = true;
+    var entities = viewer.entities;
+    viewer.camera.setView({
+        destination:Cesium.Cartesian3.fromDegrees(114.35412807424511,30.53130049933386,1500.0),
+    })
+
+    //要写的函数
+    //1.按输入设备时间获取原始数据 ok
+    //2.显示点 ok
+    //3.显示线 ok
+    //4.时间戳与选择时间的转换 ok
+    //5.判断是否为停留点
+    //其他要做的事
+    //1.设计button来选择设备和时间 王
+    //2.让其他窗口能调用我们的函数来获取时间 ok 调函数
+
+
+
+
+    // 获取数据
+    let did = '88010E2005002F5A';
+    let utcBegin = '1608566400000';
+    let utcEnd =   '1608647227423';
+    var data = getData(did, utcBegin, utcEnd);
+    console.log(data);
+    var pA = getPointEntities(data);
+    for (var i=0; i<pA.length; i++){
+        viewer.entities.add(pA[i]);
+    };
+    var lc = getLineCzml(data);
+    var dataSourcePromise = Cesium.CzmlDataSource.load(lc);
+    viewer.dataSources.add(dataSourcePromise);
+
+</script>
 
 </body>
 </html>
