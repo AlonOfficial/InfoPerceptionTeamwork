@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f4fccd37-e289-4465-8735-a78567959ff2" name="Default Changelist" comment="test" />
+    <list default="true" id="f4fccd37-e289-4465-8735-a78567959ff2" name="Default Changelist" comment="test">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -35,6 +38,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -65,7 +69,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608617928390</updated>
-      <workItem from="1608617930757" duration="13795000" />
+      <workItem from="1608617930757" duration="14445000" />
     </task>
     <servers />
   </component>
@@ -85,6 +89,10 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state width="849" height="466" key="DebuggerActiveHint/62.0.1474.864@62.0.1474.864" timestamp="1608647808085" />
+    <state x="581" y="187" key="FileChooserDialogImpl" timestamp="1608649865386">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="581" y="187" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1608649865386" />
     <state width="1431" height="277" key="GridCell.Tab.0.bottom" timestamp="1608648763703">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -133,6 +141,10 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state width="1431" height="277" key="GridCell.Tab.2.right/62.0.1474.864@62.0.1474.864" timestamp="1608647755377" />
+    <state x="301" y="77" key="SettingsEditor" timestamp="1608650005344">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="301" y="77" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1608650005344" />
     <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1608640058762">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
