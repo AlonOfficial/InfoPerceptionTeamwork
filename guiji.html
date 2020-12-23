@@ -13,6 +13,7 @@
     <script src="Build/Cesium/Cesium.js"></script>
     <script src="jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="guiji.js" ></script>
+    <script type="text/javascript" src="Sandcastle/Sandcastle-header.js"></script>
     <style>
         @import url(Build/Cesium/Widgets/widgets.css);
         @import url(Sandcastle/templates/bucket.css);
@@ -41,7 +42,12 @@
     <a href="jiankong.html" target="shouye">监控视频</a>
 </div>
 <span id="bar">
+<div id="toolbar">
+<select>
+    data-bind="options: exampleTypes,value: currentExampleType"
 
+</select>
+</div>
 		</span>
 
 <script>
@@ -82,6 +88,29 @@
     var lc = getLineCzml(data);
     var dataSourcePromise = Cesium.CzmlDataSource.load(lc);
     viewer.dataSources.add(dataSourcePromise);
+
+var options = [{
+    text: 'Draw Circle',
+    onselect: function () {
+        terminateShape();
+        drawingMode = 'circle';
+    }
+
+}];
+var options2 = [{
+    text: 'deviceID',
+}];
+
+function createButtons(scene) {
+
+    Sandcastle.addToolbarMenu(options);
+    Sandcastle.addToolbarMenu(options2);
+    Sandcastle.addDefaultToolbarButton("Satellites", function () {});
+
+    document.getElementById("toolbar").style.width = "20%";
+}
+var scene = viewer.scene;
+createButtons(scene);
 
 </script>
 

@@ -63,7 +63,7 @@ var getLineCzml = function (data){
                 material: {
                     solidColor: {
                         color: {
-                            rgba: [255, 0, 0, 255],
+                            rgba: [0, 0, 255, 100],
                         },
                     },
                 },
