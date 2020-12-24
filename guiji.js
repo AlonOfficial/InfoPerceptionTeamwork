@@ -10,21 +10,44 @@ var getData = function (did, begin, end){
         contentType : "application/x-www-form-urlencoded",
         crossDomain : true,
         beforeSend : function(xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQ5M2Q4MWQ1LTM3YzQtNDEzYS04YTliLTIwY2NmZGQ4OTg0OSJ9.HjA0f42IlZSlhzdjkYQ6eZiNnfopu_F0B4iSolyfDV_SDsYyf2fEHBInNX9c6I5fGxu_2kiZCOn7WSraq-AuPQ");
+            xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQyYzE5MTM2LTM4OWYtNGZjNi1iNTA4LWY1NWZhNWM0NjcyNCJ9.r6IP_Wgys1dGYuhncZ1xaBjnkQI8gyGv85_PCNlMUTxTrBPnLiwqa8KbFBsfiX0J1jH7gwYgutXDWpwSC67ZLw");
         },
         success : function(res, textStatus)
         {
             trace = res;
         }
     });
-    return trace;
+    if (trace[0].rows.length===0){
+        alert("there is no data, change another time");
+    }
+    else{
+        return trace;
+    }
 };
 //返回点的实体entities(array)
 var getPointEntities = function (data){
     var entities=[];
     var points = data[0].rows;
-    for (var i=0; i<points.length; i++){
+
+    for (var i=0; i<points.length-1; i++){
+        //1.判断是否为停留点
+        var threshold=5;
         var p = points[i];
+        var p2 = points[i+1];
+        var td = dist(p.lngGps, p.latGps, p2.lngGps, p2.latGps);
+        if(td<threshold){
+            var color = Cesium.Color.RED;
+        }
+        else {
+            var color = Cesium.Color.WHITE;
+        }
+        //2.添加属性信息
+        var descriptionHtml ="<table>";
+        for ( var key in p)
+        {
+            descriptionHtml+="<tr>"+"<td>"+String(key)+"</td>"+"<td>"+String(p[key])+"</td></tr>";
+        }
+        descriptionHtml+="</table>";
         let entity = new Cesium.Entity({
             id: p.id.toString(), //id一定要注意，entities里面其他entity的id不能相同。
             name: p.address,
@@ -34,12 +57,33 @@ var getPointEntities = function (data){
             ({
                 show : true,
                 pixelSize :  5,
-                color : Cesium.Color.WHITE,
-            })
+                color : color,
+            }),
+            description:descriptionHtml
 
         });
         entities.push(entity);
     }
+    //3.补上最后一个点
+    var end = points[points.length-1];
+    var descriptionHtml ="<table>";
+    for ( var key in p)
+    {
+        descriptionHtml+="<tr>"+"<td>"+String(key)+"</td>"+"<td>"+String(p[key])+"</td></tr>";
+    }
+    let entity = new Cesium.Entity({
+        id: end.id.toString(), //id一定要注意，entities里面其他entity的id不能相同。
+        name: end.address,
+        show:true,
+        position:Cesium.Cartesian3.fromDegrees(end.lngGps, end.latGps),
+        point:new Cesium.PointGraphics
+        ({
+            show : true,
+            pixelSize :  5,
+            color : Cesium.Color.WHITE,
+        })
+    });
+    entities.push(entity);
     return entities;
 };
 //返回线的czml结构(array)
@@ -63,7 +107,7 @@ var getLineCzml = function (data){
                 material: {
                     solidColor: {
                         color: {
-                            rgba: [255, 0, 0, 255],
+                            rgba: [255, 255, 0, 255],
                         },
                     },
                 },
@@ -78,3 +122,72 @@ var getLineCzml = function (data){
 //时间与时间戳互换
 //戳-时：str.getTime();
 //时-戳：var t = new Data("2017-12-08 20:5:30");
+
+//计算两点之间距离，经纬度
+var dist = function (lng1, lat1, lng2, lat2){
+    var R = 6378137;
+    var dLat = (lat1 - lat2) * Math.PI / 180;
+    var dLng = (lng1 - lng2) * Math.PI / 180;
+    var a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(lat2 * Math.PI / 180) * Math.cos(lat1 * Math.PI / 180) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
+    var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    var d = R * c;
+    return Math.round(d)
+};
+//根据速度判断是否为停留点
+var isStop = function (data){
+    var threshold = 5;
+    var entities=[];
+    var points = data[0].rows;
+    for (var i=0; i<points.length-1; i++){
+        var p1 = points[i];
+        var p2 = points[i+1];
+        var td = dist(p1.lngGps, p1.latGps, p2.lngGps, p2.latGps);
+        if(td<threshold){
+            var color = Cesium.Color.RED;
+        }
+        else {
+            var color = Cesium.Color.WHITE;
+        }
+        let entity = new Cesium.Entity({
+            id: p1.id.toString(), //id一定要注意，entities里面其他entity的id不能相同。
+            name: p1.address,
+            show:true,
+            position:Cesium.Cartesian3.fromDegrees(p1.lngGps, p1.latGps),
+            point:new Cesium.PointGraphics
+            ({
+                show : true,
+                pixelSize :  5,
+                color : color,
+            })
+        });
+        entities.push(entity);
+    }
+    var end = points[points.length-1];
+    let entity = new Cesium.Entity({
+        id: end.id.toString(), //id一定要注意，entities里面其他entity的id不能相同。
+        name: end.address,
+        show:true,
+        position:Cesium.Cartesian3.fromDegrees(end.lngGps, end.latGps),
+        point:new Cesium.PointGraphics
+        ({
+            show : true,
+            pixelSize :  5,
+            color : Cesium.Color.WHITE,
+        })
+    });
+    entities.push(entity);
+
+    return entities;
+};
+
+// 可选的设备号
+var deviceIdArray=["88010E2005002F5A","88010E2005002F5A"];
+
+// 显示设备号函数
+function setDeviceId(){
+    var deviceHtml = "";
+    for(var i=0;i<deviceIdArray.length;i++){
+        deviceHtml += '<option>' + deviceIdArray[i] + '</option>'
+    }
+    $("#deviceId").append(deviceHtml);
+}
