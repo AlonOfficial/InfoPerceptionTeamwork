@@ -19,11 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4fccd37-e289-4465-8735-a78567959ff2" name="Default Changelist" comment="上传按钮代码html">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiji.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiji.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/guiji.js" beforeDir="false" afterPath="$PROJECT_DIR$/guiji.js" afterDir="false" />
-    </list>
+    <list default="true" id="f4fccd37-e289-4465-8735-a78567959ff2" name="Default Changelist" comment="轨迹显示新增时间选择及点的属性信息展示" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -79,7 +75,7 @@
       <updated>1608617928390</updated>
       <workItem from="1608617930757" duration="16686000" />
       <workItem from="1608725396293" duration="2214000" />
-      <workItem from="1608805974049" duration="10881000" />
+      <workItem from="1608805974049" duration="11228000" />
     </task>
     <task id="LOCAL-00001" summary="上传按钮代码html">
       <created>1608650092526</created>
@@ -88,7 +84,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608650092526</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="轨迹显示新增时间选择及点的属性信息展示">
+      <created>1608818955532</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1608818955532</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +112,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="test" />
     <MESSAGE value="上传按钮代码html" />
-    <option name="LAST_COMMIT_MESSAGE" value="上传按钮代码html" />
+    <MESSAGE value="轨迹显示新增时间选择及点的属性信息展示" />
+    <option name="LAST_COMMIT_MESSAGE" value="轨迹显示新增时间选择及点的属性信息展示" />
   </component>
   <component name="WindowStateProjectService">
     <state x="254" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608640200199">
@@ -124,62 +128,66 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="581" y="187" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1608649865386" />
-    <state width="1431" height="277" key="GridCell.Tab.0.bottom" timestamp="1608809311692">
+    <state width="1431" height="186" key="GridCell.Tab.0.bottom" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608809311692" />
-    <state width="1431" height="277" key="GridCell.Tab.0.center" timestamp="1608809311692">
+    <state width="1431" height="186" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="186" key="GridCell.Tab.0.center" timestamp="1608818923811">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1608809311692" />
-    <state width="1431" height="277" key="GridCell.Tab.0.left" timestamp="1608809311691">
+    <state width="1431" height="186" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1608818923811" />
+    <state width="1431" height="186" key="GridCell.Tab.0.left" timestamp="1608818923811">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1608809311691" />
-    <state width="1431" height="277" key="GridCell.Tab.0.right" timestamp="1608809311692">
+    <state width="1431" height="186" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1608818923811" />
+    <state width="1431" height="186" key="GridCell.Tab.0.right" timestamp="1608818923811">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1608809311692" />
-    <state width="1431" height="277" key="GridCell.Tab.1.bottom" timestamp="1608652293224">
+    <state width="1431" height="186" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1608818923811" />
+    <state width="1431" height="186" key="GridCell.Tab.1.bottom" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.1.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608652293224" />
-    <state width="1431" height="277" key="GridCell.Tab.1.center" timestamp="1608652293224">
+    <state width="1431" height="186" key="GridCell.Tab.1.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="186" key="GridCell.Tab.1.center" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.1.center/62.0.1474.864@62.0.1474.864" timestamp="1608652293224" />
-    <state width="1431" height="277" key="GridCell.Tab.1.left" timestamp="1608652293224">
+    <state width="1431" height="186" key="GridCell.Tab.1.center/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="186" key="GridCell.Tab.1.left" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.1.left/62.0.1474.864@62.0.1474.864" timestamp="1608652293224" />
-    <state width="1431" height="277" key="GridCell.Tab.1.right" timestamp="1608652293224">
+    <state width="1431" height="186" key="GridCell.Tab.1.left/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="186" key="GridCell.Tab.1.right" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.1.right/62.0.1474.864@62.0.1474.864" timestamp="1608652293224" />
-    <state width="1431" height="277" key="GridCell.Tab.2.bottom" timestamp="1608652293232">
+    <state width="1431" height="186" key="GridCell.Tab.1.right/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="186" key="GridCell.Tab.2.bottom" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.2.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608652293232" />
-    <state width="1431" height="277" key="GridCell.Tab.2.center" timestamp="1608652293227">
+    <state width="1431" height="186" key="GridCell.Tab.2.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="186" key="GridCell.Tab.2.center" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.2.center/62.0.1474.864@62.0.1474.864" timestamp="1608652293227" />
-    <state width="1431" height="277" key="GridCell.Tab.2.left" timestamp="1608652293224">
+    <state width="1431" height="186" key="GridCell.Tab.2.center/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="186" key="GridCell.Tab.2.left" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.2.left/62.0.1474.864@62.0.1474.864" timestamp="1608652293224" />
-    <state width="1431" height="277" key="GridCell.Tab.2.right" timestamp="1608652293230">
+    <state width="1431" height="186" key="GridCell.Tab.2.left/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="186" key="GridCell.Tab.2.right" timestamp="1608818923812">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="277" key="GridCell.Tab.2.right/62.0.1474.864@62.0.1474.864" timestamp="1608652293230" />
+    <state width="1431" height="186" key="GridCell.Tab.2.right/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state x="179" y="193" width="985" height="478" key="MultipleFileMergeDialog" timestamp="1608819037415">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="179" y="193" width="985" height="478" key="MultipleFileMergeDialog/62.0.1474.864@62.0.1474.864" timestamp="1608819037415" />
     <state x="301" y="77" key="SettingsEditor" timestamp="1608650005344">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="301" y="77" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1608650005344" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1608650105551">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1608819057650">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1608650105551" />
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1608819057650" />
     <state x="604" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608727871370">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
