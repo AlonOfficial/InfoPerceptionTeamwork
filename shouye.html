@@ -1,136 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
+﻿<!DOCTYPE html>
+<html>
 
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible"/>
-    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1"
-    />
-    <title>基于来校人员轨迹的管理</title>
-    <script src="Build/Cesium/Cesium.js"></script>
-	<script src="jquery-3.5.1.min.js"></script>
-    <style>
-      @import url(Build/Cesium/Widgets/widgets.css);
-      html, body
-	  {
-		padding: 0;
-		margin: 0;
-	  }
-      #cesiumContainer {
-        float:right;
-        width: 100%;
-        height: 100%;
-      }
-      
+<head>
+  <style>
+    body {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+      z-index: 2;
 
+    }
 
-   
+    #header {
+      background-color: rgb(136, 214, 220);
+      color: white;
+      text-align: center;
+      padding: 5px;
+    }
 
-    </style>
-  </head>
+    #section {
+      width: 100%;
+      height: 450px;
+      float: left;
+      padding: 5px;
+      background-image: url(img/background.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
 
-  <body>
-  
+    #float1 {
+      background-color: rgba(136, 214, 220, 0.8);
+      color: white;
+      position: absolute;
+      top: 55%;
+      left: 15%;
+      width: 25%;
+      height: 30%;
+      text-align: center;
+      margin-top: 0px;
+      z-index: 99 !important;
+    }
 
-
-        <div id="cesiumContainer">
-			<a href="shouye.html" target="shouye">首页</a>
-			<a href="weilan.html" target="shouye">电子围栏</a>
-			<a href="guiji.html" target="shouye">历史轨迹</a>
-			<a href="wenshidu.html" target="shouye">温湿度</a>
-			<a href="jiankong.html" target="shouye">监控视频</a>
-		</div>
-		<span id="bar">
-			
-		</span>
-    
-      <script>
-        var viewer = new Cesium.Viewer("cesiumContainer",{
-          geocoder:false,
-          homeButton:false,
-          sceneModePicker:false,
-       
-        });
-		
-		viewer.scene.globe.enableLighting = true;
-		var entities = viewer.entities;
-		
-		
-		// 获取数据
-		var trace;
-		let dids = '88010E2005002F5A';
-		let utcBegin = '1603958084000';
-		let utcEnd =   '9999999999999';
-		// 发送请求命令
-		console.log("helloworld");
-		$.ajax({
-		type : "GET",
-		url : 'https://www.jsciot.com/wm-api/web/rest/v2/positionInfo/listAllRoundTrack?dids=88010E19070000FF,' + dids + 
-			  '&orderByType=ASC&pageNo=1&pageSize=100&positionModes=1,2,3&processMode=1&showOriginalTrack=1' + '&utcBegin='+utcBegin + '&utcEnd='+utcEnd,
-		async : false,
-		
-		contentType : "application/x-www-form-urlencoded", 
-		crossDomain : true,
-		beforeSend : function(xhr) {
-		xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQ5M2Q4MWQ1LTM3YzQtNDEzYS04YTliLTIwY2NmZGQ4OTg0OSJ9.HjA0f42IlZSlhzdjkYQ6eZiNnfopu_F0B4iSolyfDV_SDsYyf2fEHBInNX9c6I5fGxu_2kiZCOn7WSraq-AuPQ");
-		},
-		
-		success : function(res, textStatus) 
-		{
-			console.log("helloworld2");
-			console.log(res);
-			trace = res;
-			
-			
-		}
-		});
-		
-		
-		//单个点测试
-		var a = trace[0].rows;
-		var b = a[0];
-		var c = b.latBd;
-		console.log(c);
-		console.log(c);
-		// 显示所有轨迹
-		for(var i=0; i<trace.length; i++)
-		{
-			var line = trace[i];
-			var points = line.rows;
-			for(var j=0; j<points.length; j++)
-			{
-				var point = points[j];
-				var x = point.lngGps;
-				var y = point.latGps;
-				console.log(x);
-				console.log(y);
-				var address = point.address;
-				var idstr = point.id;
-				console.log(idstr);
-				let entity = new Cesium.Entity({
-					id: idstr, //id一定要注意，entities里面其他entity的id不能相同。
-					name:'点',
-					show:true,
-					position:Cesium.Cartesian3.fromDegrees(x, y),
-					point:new Cesium.PointGraphics
-					({
-						show : true,
-						pixelSize :  5,
-						color : Cesium.Color.Red,
-					})
-					
-				});
-				viewer.entities.add(entity);
-				
-
-			}
-		}
+    #float2 {
+      background-color: rgba(136, 214, 220, 0.8);
+      color: white;
+      position: absolute;
+      top: 55%;
+      left: 60%;
+      width: 25%;
+      height: 30%;
+      text-align: center;
+      margin-top: 0px;
+      z-index: 99 !important;
+    }
 
 
-      </script>
-    
-  </body>
+    #footer {
+      background-color: rgb(136, 214, 220);
+      color: white;
+      clear: both;
+      text-align: center;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="header">
+    <h1>基于轨迹信息的校园特殊人员管理平台</h1>
+  </div>
+
+  <div id="section"></div>
+
+
+
+  <div id="float1">
+    <h1>设备</h1>
+    <p>
+      包括手牵手定位器，摄像头、温湿度传感器等等<br />……
+    </p>
+  </div>
+
+  <div id="float2">
+    <h1>功能</h1>
+    <p>
+      包括历史轨迹查询、隔离管理、摄像监控、温湿度传感器监控等等<br />……
+    </p>
+  </div>
+
+  </div>
+
+  <div id="footer">
+    Copyright ： 武汉大学遥感学院空信专业第六小组
+  </div>
+
+</body>
+
 </html>

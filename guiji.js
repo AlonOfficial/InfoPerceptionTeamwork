@@ -10,7 +10,7 @@ var getData = function (did, begin, end){
         contentType : "application/x-www-form-urlencoded",
         crossDomain : true,
         beforeSend : function(xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQ5M2Q4MWQ1LTM3YzQtNDEzYS04YTliLTIwY2NmZGQ4OTg0OSJ9.HjA0f42IlZSlhzdjkYQ6eZiNnfopu_F0B4iSolyfDV_SDsYyf2fEHBInNX9c6I5fGxu_2kiZCOn7WSraq-AuPQ");
+            xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6IjZiZWZhNzg1LTk3NTktNDRiYi04MTE3LTFjZjc5YjVmOGMyMiJ9.sOakAJn48C9KhuDRig0UYjVWvO1iFXFCHLWOle0g2ZbU-j0GM76qetw5P110_keo53Kbz1zxuL8AxEI4yIC_oA");
         },
         success : function(res, textStatus)
         {
