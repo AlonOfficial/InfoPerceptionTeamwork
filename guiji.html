@@ -1,117 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible"/>
-    <!-- Make the application on mobile take up the full browser screen and disable user scaling. -->
-    <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1"
-    />
-    <title>基于来校人员轨迹的管理</title>
-    <script src="Build/Cesium/Cesium.js"></script>
-    <script src="jquery-3.5.1.min.js"></script>
-    <script type="text/javascript" src="guiji.js" ></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+
+    <title>Show tails</title>
     <script type="text/javascript" src="Sandcastle/Sandcastle-header.js"></script>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="guiji.js"></script>
+    <script type="text/javascript" src="Build/CesiumUnminified/Cesium.js"></script>
+    <script type="text/javascript" src="datePlugin.js" ></script>
+</head>
+
+
+
+<div class="sandcastle-loading" data-sandcastle-bucket="bucket-requirejs.html">
     <style>
         @import url(Build/Cesium/Widgets/widgets.css);
         @import url(Sandcastle/templates/bucket.css);
-        html, body
-        {
-            padding: 0;
-            margin: 0;
-        }
-        #cesiumContainer {
-            float:right;
-            width: 100%;
-            height: 100%;
-        }
     </style>
-</head>
 
-<body>
-
-
-
-<div id="cesiumContainer">
-    <a href="shouye.html" target="shouye">首页</a>
-    <a href="weilan.html" target="shouye">电子围栏</a>
-    <a href="guiji.html" target="shouye">历史轨迹</a>
-    <a href="wenshidu.html" target="shouye">温湿度</a>
-    <a href="jiankong.html" target="shouye">监控视频</a>
+    <div id="cesiumContainer", class="fullSize"></div>
+    <input class="cesium-button" id = "startTime" onclick="SelectDate(this,'yyyy-MM-dd hh:mm:ss')" type="button" value="start time">
+    <input class="cesium-button" id ="endTime" onclick="SelectDate(this,'yyyy-MM-dd hh:mm:ss')" type="button" value="end time">
+    <select id="selectdid" class="cesium-button">
+        <option value="88010E2005002F5A" selected="selected">88010E2005002F5A</option>
+        <option value="88010E20050044D8">88010E20050044D8</option>
+    </select>
+    <input id="refresh" type="button" value="let's go" class="cesium-button" onclick="showTrace()")>
 </div>
-<span id="bar">
-<div id="toolbar">
-<select>
-    data-bind="options: exampleTypes,value: currentExampleType"
 
-</select>
-</div>
-		</span>
 
-<script>
-    var viewer = new Cesium.Viewer("cesiumContainer",{
-        geocoder:false,
-        homeButton:false,
-        sceneModePicker:false,
+<script id="cesium_sandcastle_script">
+    //1.设置container初始参数
+    var osm = new Cesium.OpenStreetMapImageryProvider({
+        url: 'https://a.tile.openstreetmap.org/'
     });
-    viewer.scene.globe.enableLighting = true;
-    var entities = viewer.entities;
+    var viewer = new Cesium.Viewer('cesiumContainer', {
+        imageryProvider: osm
+    });
     viewer.camera.setView({
         destination:Cesium.Cartesian3.fromDegrees(114.35412807424511,30.53130049933386,1500.0),
     })
+    //2.显示轨迹
+    showTrace();
+    function showTrace(){
+        //删除之前的轨迹
+        viewer.dataSources.removeAll();
+        viewer.entities.removeAll();
 
-    //要写的函数
-    //1.按输入设备时间获取原始数据 ok
-    //2.显示点 ok
-    //3.显示线 ok
-    //4.时间戳与选择时间的转换 ok
-    //5.判断是否为停留点
-    //其他要做的事
-    //1.设计button来选择设备和时间 王
-    //2.让其他窗口能调用我们的函数来获取时间 ok 调函数
-
-
-
-
-    // 获取数据
-    let did = '88010E2005002F5A';
-    let utcBegin = '1608566400000';
-    let utcEnd =   '1608647227423';
-    var data = getData(did, utcBegin, utcEnd);
-    console.log(data);
-    var pA = getPointEntities(data);
-    for (var i=0; i<pA.length; i++){
-        viewer.entities.add(pA[i]);
-    };
-    var lc = getLineCzml(data);
-    var dataSourcePromise = Cesium.CzmlDataSource.load(lc);
-    viewer.dataSources.add(dataSourcePromise);
-
-var options = [{
-    text: 'Draw Circle',
-    onselect: function () {
-        terminateShape();
-        drawingMode = 'circle';
+        //获取参数
+        var did = selectdid.value;
+        let utcBegin = String((new Date(startTime)).getTime());
+        let utcEnd =   String((new Date(endtime)).getTime());
+        //获取数据及显示点、线
+        var data = getData(did, utcBegin, utcEnd);
+        console.log(data);
+        var pA = getPointEntities(data);
+        for (var i=0; i<pA.length; i++){
+            viewer.entities.add(pA[i]);
+        };
+        var lc = getLineCzml(data);
+        var dataSourcePromise = Cesium.CzmlDataSource.load(lc);
+        viewer.dataSources.add(dataSourcePromise);
     }
-
-}];
-var options2 = [{
-    text: 'deviceID',
-}];
-
-function createButtons(scene) {
-
-    Sandcastle.addToolbarMenu(options);
-    Sandcastle.addToolbarMenu(options2);
-    Sandcastle.addDefaultToolbarButton("Satellites", function () {});
-
-    document.getElementById("toolbar").style.width = "20%";
-}
-var scene = viewer.scene;
-createButtons(scene);
-
 </script>
 
 </body>
