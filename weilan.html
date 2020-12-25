@@ -136,8 +136,15 @@
                             document.getElementById("sound").innerHTML = "<audio autoplay=\"autoplay\">" +
                                 "<source src=\"http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=7&text=" +
                                 zhText + "\" type=\"audio/mpeg\"></audio>";
-
-                            window.alert("隔离者已离开隔离区！");
+                            
+                            //从点的utcCreate时间转换得到标准格式时间，并输出警告
+                            var description = points[i].description.getValue();
+                            var time = description.indexOf("utcCreate");
+                            time = description.slice(time+18,time+31);
+                            var date = new Date();
+                            date.setTime(parseInt(time));
+                            date = date.toLocaleString();
+                            window.alert("隔离者已于"+date+"离开隔离区！");
                         }
                     }
                 };
@@ -192,6 +199,7 @@
             }
             //绘制最终矩形，并赋予该矩形id
             else {
+                viewer.entities.remove(viewer.entities.getById('quarantine'));
                 arr = positionData;
                 shape = viewer.entities.add({
                     id: "quarantine",
@@ -309,7 +317,6 @@
             viewer.dataSources.removeAll();
             var myDate = new Date();
             utcEnd = myDate.getTime();
-            console.log(utcBegin);
             utcBegin = (parseInt(myDate.getTime()) - 86400000).toString();
             drawQuarantine();
             drawRouteData();
