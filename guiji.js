@@ -1,3 +1,16 @@
+//获取认证码
+var getAutho = function (){
+    var Autho;
+    $.ajax({
+        type: "GET",
+        url: 'https://www.jsciot.com/wm-api/web/rest/authorization/authorize?appId=szyxy&appSecret=12345678',
+        success:function (res, textStatus){
+            console.log(res);
+            Autho = String(res.data.Authorization);
+        }
+    });
+    return Autho;
+}
 //返回原始数据
 var getData = function (did, begin, end){
     var trace;
@@ -10,7 +23,7 @@ var getData = function (did, begin, end){
         contentType : "application/x-www-form-urlencoded",
         crossDomain : true,
         beforeSend : function(xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImQyYzE5MTM2LTM4OWYtNGZjNi1iNTA4LWY1NWZhNWM0NjcyNCJ9.r6IP_Wgys1dGYuhncZ1xaBjnkQI8gyGv85_PCNlMUTxTrBPnLiwqa8KbFBsfiX0J1jH7gwYgutXDWpwSC67ZLw");
+            xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImM1YmRiZTY1LTY0ODUtNGRkNS05MjFhLTY4OTY0NTY0YmMwYiJ9.hK5DeKAxcFIPS1a282Zlx5cfvc7C_h5v69okzf-TB5rbj7Vfd8v65Rwt3UVSFZVQ027vKVgeMCOG8bRPTKoz3Q");
         },
         success : function(res, textStatus)
         {
@@ -31,15 +44,17 @@ var getPointEntities = function (data){
 
     for (var i=0; i<points.length-1; i++){
         //1.判断是否为停留点
-        var threshold=5;
+        var threshold=10;
         var p = points[i];
         var p2 = points[i+1];
         var td = dist(p.lngGps, p.latGps, p2.lngGps, p2.latGps);
         if(td<threshold){
             var color = Cesium.Color.RED;
+            var pixelSize = 10;
         }
         else {
             var color = Cesium.Color.WHITE;
+            var pixelSize = 5;
         }
         //2.添加属性信息
         var descriptionHtml ="<table>";
@@ -56,7 +71,7 @@ var getPointEntities = function (data){
             point:new Cesium.PointGraphics
             ({
                 show : true,
-                pixelSize :  5,
+                pixelSize :  pixelSize,
                 color : color,
             }),
             description:descriptionHtml
@@ -107,7 +122,7 @@ var getLineCzml = function (data){
                 material: {
                     solidColor: {
                         color: {
-                            rgba: [255, 255, 0, 255],
+                            rgba: [0, 0, 255, 100],
                         },
                     },
                 },
