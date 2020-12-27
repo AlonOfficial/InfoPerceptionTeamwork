@@ -1,11 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>首页</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no"/>
+    <title>Hello World!</title>
+    <script src="./wenshidu.js"></script>
+    <script src="./Build/Cesium/Cesium.js"></script>
+    <script src="xlsx.core.min.js"></script>
+    <style>
+        @import url(./Build/Cesium/Widgets/widgets.css);
+        @import url(Sandcastle/templates/bucket.css);
+
+    </style>
 </head>
 <body>
-    <h1>这里显示温湿度信息</h1>
 
+<div id="cesiumContainer" class="fullSize"></div>
+<input  class="cesium-button" type="file" id="readFile" onchange="showfile(this)">
+
+
+<script>
+    //1.设置container初始参数
+    var osm = new Cesium.OpenStreetMapImageryProvider({
+        url: 'https://a.tile.openstreetmap.org/'
+    });
+    var viewer = new Cesium.Viewer("cesiumContainer",{
+        animation: false, //不显示动画控件
+        homeButton: false, //不显示Home按钮
+        timeline: false, //不显示时间线控件
+        imageryProvider: osm
+    });
+
+    //2.获取excel数据
+    var Wenshiduinfo = localStorage.getItem('data');
+    var descriptionHtml ="<table>";
+    descriptionHtml += Wenshiduinfo;
+    descriptionHtml+="</table>";
+    localStorage.removeItem('data');
+    //3.容器中添加点显示数据
+    var entities = viewer.entities;
+    let entity = new Cesium.Entity({
+        id:"22",
+        name: "温湿度传感器",
+        show:true,
+        position:Cesium.Cartesian3.fromDegrees(114.367349,30.5252),
+        billboard:{
+            image: "img/温湿度传感器.png",
+            scale: 0.2,
+        },
+        description:descriptionHtml
+    });
+
+    viewer.entities.add(entity);
+    viewer.zoomTo(entity);
+
+
+
+</script>
 </body>
 </html>
