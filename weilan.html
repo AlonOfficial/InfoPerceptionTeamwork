@@ -129,22 +129,23 @@
                         points[i].point.color = Cesium.Color.RED;
                         viewer.entities.add(points[i]);
 
-                        //首次发现出界点时弹窗并语音警告
+                        //发现第一个出界点时弹窗并语音警告
                         if (alertPoint == 0) {
                             alertPoint += 1;
+                            //声音警报
                             zhText = encodeURI("隔离者已离开隔离区");
                             document.getElementById("sound").innerHTML = "<audio autoplay=\"autoplay\">" +
                                 "<source src=\"http://tts.baidu.com/text2audio?lan=zh&ie=UTF-8&spd=7&text=" +
                                 zhText + "\" type=\"audio/mpeg\"></audio>";
-                            
+
                             //从点的utcCreate时间转换得到标准格式时间，并输出警告
                             var description = points[i].description.getValue();
                             var time = description.indexOf("utcCreate");
-                            time = description.slice(time+18,time+31);
+                            time = description.slice(time + 18, time + 31);
                             var date = new Date();
                             date.setTime(parseInt(time));
                             date = date.toLocaleString();
-                            window.alert("隔离者已于"+date+"离开隔离区！");
+                            window.alert("隔离者已于" + date + "离开隔离区！");
                         }
                     }
                 };
@@ -160,9 +161,6 @@
                 }
             }
         }
-
-
-
 
         //隔离区鼠标绘制
         var activeShapePoints = [];
@@ -281,6 +279,14 @@
 
         });
 
+        //“删除当前设备隔离区”按钮
+        Sandcastle.addToolbarButton("删除当前设备隔离区", function () {
+            storage.removeItem(did);
+            viewer.entities.removeAll();
+            viewer.dataSources.removeAll();
+            drawQuarantine();
+            drawRouteData();
+        });
 
         //设备选择下拉菜单
         var options = [{
@@ -305,14 +311,39 @@
         }];
         Sandcastle.addToolbarMenu(options);
 
-        //设置工具条宽度以竖直摆放按钮
-        document.getElementById("toolbar").style.width = "20%";
 
-        Sandcastle.finishedLoading();
+        var refreshTime = 10000;//默认刷新间隔10s
+        //刷新间隔选择下拉菜单
+        var options2 = [{
+            text: '刷新间隔：10s',
+            onselect: function () {
+                //clearInterval(freshID);
+                refreshTime = 10000;
+                //freshID = setInterval(refresh(), refreshTime)
+            }
+        },
 
-
-        //动态刷新函数，每隔20s重新请求最新数据
-        setInterval(function () {
+        {
+            text: '刷新间隔：30s',
+            onselect: function () {
+                //clearInterval(freshID);
+                refreshTime = 30000;
+                //freshID = setInterval(refresh(), refreshTime)
+            }
+        },
+        {
+            text: '刷新间隔：150s',
+            onselect: function () {
+                clearInterval(freshID);
+                refreshTime = 150000;
+                //freshID = setInterval(refresh(), refreshTime)
+            }
+        }];
+        Sandcastle.addToolbarMenu(options2);
+        var freshID = setInterval(fresh, refreshTime);
+        //自动刷新函数
+        function fresh() {
+            
             viewer.entities.removeAll();
             viewer.dataSources.removeAll();
             var myDate = new Date();
@@ -320,7 +351,30 @@
             utcBegin = (parseInt(myDate.getTime()) - 86400000).toString();
             drawQuarantine();
             drawRouteData();
-        }, 20000)
+
+            clearInterval(freshID);
+            //嵌套
+            freshID = setInterval(fresh, refreshTime);
+
+        }
+
+        //设置工具条宽度以竖直摆放按钮
+        document.getElementById("toolbar").style.width = "20%";
+
+        Sandcastle.finishedLoading();
+
+        
+        //动态刷新函数，每隔20s重新请求最新数据
+        //freshID = setInterval(refresh(), refreshTime)
+        // function refresh() {
+        //     viewer.entities.removeAll();
+        //     viewer.dataSources.removeAll();
+        //     var myDate = new Date();
+        //     utcEnd = myDate.getTime();
+        //     utcBegin = (parseInt(myDate.getTime()) - 86400000).toString();
+        //     drawQuarantine();
+        //     drawRouteData();
+        // }
 
     </script>
 
