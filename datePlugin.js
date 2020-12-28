@@ -177,18 +177,18 @@ function Calendar(beginYear, endYear, lang, dateFormatStyle) {
 
     this.colors = {
         "cur_word"      : "#FFFFFF",  //当日日期文字颜色
-        "cur_bg"        : "#EFEFEF",  //当日日期单元格背影色
+        "cur_bg"        : "#33ccff",  //当日日期单元格背影色
         "sel_bg"        : "#FFCCCC",  //已被选择的日期单元格背影色
         "sun_word"      : "#FF0000",  //星期天文字颜色
         "sat_word"      : "#0000FF",  //星期六文字颜色
         "td_word_light" : "#333333",  //单元格文字颜色
         "td_word_dark"  : "#CCCCCC",  //单元格文字暗色
-        "td_bg_out"     : "#EFEFEF",  //单元格背影色
+        "td_bg_out"     : "#47addc",  //单元格背影色
         "td_bg_over"    : "#FFCC00",  //单元格背影色
         "tr_word"       : "#FFFFFF",  //日历头文字颜色
         "tr_bg"         : "#666666",  //日历头背影色
         "input_border"  : "#CCCCCC",  //input控件的边框颜色
-        "input_bg"      : "#EFEFEF"   //input控件的背影色
+        "input_bg"      : "#CCCCCC"   //input控件的背影色
     }
     /* //2008-01-29 放到了 show ，因为要做 pickMode 判断
      this.draw();
