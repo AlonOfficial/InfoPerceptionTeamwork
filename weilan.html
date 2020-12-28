@@ -122,11 +122,13 @@
                     if (Cesium.Rectangle.contains(quarantine, point)) {
                         viewer.entities.remove(points[i]);
                         points[i].point.color = Cesium.Color.WHITE;
+                        points[i].point.pixelSize = 5;
                         viewer.entities.add(points[i]);
                     }
                     else {
                         viewer.entities.remove(points[i]);
                         points[i].point.color = Cesium.Color.RED;
+                        points[i].point.pixelSize = 5;
                         viewer.entities.add(points[i]);
 
                         //发现第一个出界点时弹窗并语音警告
