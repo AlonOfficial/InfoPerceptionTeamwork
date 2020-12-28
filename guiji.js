@@ -3,6 +3,7 @@ var getAutho = function (){
     var Autho;
     $.ajax({
         type: "GET",
+        async: false,
         url: 'https://www.jsciot.com/wm-api/web/rest/authorization/authorize?appId=szyxy&appSecret=12345678',
         success:function (res, textStatus){
             console.log(res);
@@ -23,7 +24,7 @@ var getData = function (did, begin, end){
         contentType : "application/x-www-form-urlencoded",
         crossDomain : true,
         beforeSend : function(xhr) {
-            xhr.setRequestHeader("Authorization", "Bearer eyJhbGciOiJIUzUxMiJ9.eyJsb2dpbl91c2VyX2tleSI6ImM1YmRiZTY1LTY0ODUtNGRkNS05MjFhLTY4OTY0NTY0YmMwYiJ9.hK5DeKAxcFIPS1a282Zlx5cfvc7C_h5v69okzf-TB5rbj7Vfd8v65Rwt3UVSFZVQ027vKVgeMCOG8bRPTKoz3Q");
+            xhr.setRequestHeader("Authorization", getAutho());
         },
         success : function(res, textStatus)
         {

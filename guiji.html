@@ -14,14 +14,15 @@
     <script type="text/javascript" src="datePlugin.js" ></script>
 </head>
 
+<body>
+
+<style>
+    @import url(Build/Cesium/Widgets/widgets.css);
+    @import url(Sandcastle/templates/bucket.css);
+</style>
 
 
 <div class="sandcastle-loading" data-sandcastle-bucket="bucket-requirejs.html">
-    <style>
-        @import url(Build/Cesium/Widgets/widgets.css);
-        @import url(Sandcastle/templates/bucket.css);
-    </style>
-
     <div id="cesiumContainer", class="fullSize"></div>
     <input class="cesium-button" id = "startTime" onclick="SelectDate(this,'yyyy-MM-dd hh:mm:ss')" type="button" value="start time">
     <input class="cesium-button" id ="endTime" onclick="SelectDate(this,'yyyy-MM-dd hh:mm:ss')" type="button" value="end time">
@@ -39,18 +40,20 @@
         url: 'https://a.tile.openstreetmap.org/'
     });
     var viewer = new Cesium.Viewer('cesiumContainer', {
+        animation: false, //不显示动画控件
+        homeButton: false, //不显示Home按钮
+        timeline: false, //不显示时间线控件
         imageryProvider: osm
     });
     viewer.camera.setView({
         destination:Cesium.Cartesian3.fromDegrees(114.35412807424511,30.53130049933386,1500.0),
     })
     //2.显示轨迹
-    showTrace();
+
     function showTrace(){
         //删除之前的轨迹
         viewer.dataSources.removeAll();
         viewer.entities.removeAll();
-
         //获取参数
         var did = selectdid.value;
         let utcBegin = String((new Date(startTime)).getTime());

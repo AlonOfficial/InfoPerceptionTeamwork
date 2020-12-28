@@ -19,7 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f4fccd37-e289-4465-8735-a78567959ff2" name="Default Changelist" comment="轨迹显示新增时间选择及点的属性信息展示" />
+    <list default="true" id="f4fccd37-e289-4465-8735-a78567959ff2" name="Default Changelist" comment="12.28">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/datePlugin.js" beforeDir="false" afterPath="$PROJECT_DIR$/datePlugin.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiji.html" beforeDir="false" afterPath="$PROJECT_DIR$/guiji.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/guiji.js" beforeDir="false" afterPath="$PROJECT_DIR$/guiji.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/img/温湿度传感器.png" beforeDir="false" afterPath="$PROJECT_DIR$/img/wenshidu.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/wenshidu.html" beforeDir="false" afterPath="$PROJECT_DIR$/wenshidu.html" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,6 +36,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
+        <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -42,10 +50,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/taw.html" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -55,12 +64,35 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JavaScript Debug.taw.html">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="guiji.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/InfoPerceptionTeamwork/guiji.html" useBuiltInWebServerPort="true">
       <method v="2" />
     </configuration>
+    <configuration name="taw.html" type="JavascriptDebugType" uri="http://localhost:63342/InfoPerceptionTeamwork/taw.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="wenshidu.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/InfoPerceptionTeamwork/wenshidu.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.taw.html" />
+      <item itemvalue="JavaScript Debug.guiji.html" />
+      <item itemvalue="JavaScript Debug.wenshidu.html" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JavaScript Debug.wenshidu.html" />
         <item itemvalue="JavaScript Debug.guiji.html" />
       </list>
     </recent_temporary>
@@ -75,7 +107,14 @@
       <updated>1608617928390</updated>
       <workItem from="1608617930757" duration="16686000" />
       <workItem from="1608725396293" duration="2214000" />
-      <workItem from="1608805974049" duration="11228000" />
+      <workItem from="1608805974049" duration="14265000" />
+      <workItem from="1608875283203" duration="12068000" />
+      <workItem from="1608987606977" duration="35000" />
+      <workItem from="1608994986396" duration="6062000" />
+      <workItem from="1609028428566" duration="8812000" />
+      <workItem from="1609067251920" duration="3016000" />
+      <workItem from="1609082959265" duration="5509000" />
+      <workItem from="1609137423225" duration="321000" />
     </task>
     <task id="LOCAL-00001" summary="上传按钮代码html">
       <created>1608650092526</created>
@@ -91,7 +130,42 @@
       <option name="project" value="LOCAL" />
       <updated>1608818955532</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="将停留点判断放入了getPointEntities函数内">
+      <created>1608819404579</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1608819404579</updated>
+    </task>
+    <task id="LOCAL-00004" summary="增加温湿度显示界面">
+      <created>1609031732420</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1609031732420</updated>
+    </task>
+    <task id="LOCAL-00005" summary="温湿度控件添加图片">
+      <created>1609032769817</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1609032769817</updated>
+    </task>
+    <task id="LOCAL-00006" summary="温湿度数据">
+      <created>1609032787266</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1609032787266</updated>
+    </task>
+    <task id="LOCAL-00007" summary="添加获取Authorization认证码函数">
+      <created>1609038672275</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1609038672275</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -113,69 +187,83 @@
     <MESSAGE value="test" />
     <MESSAGE value="上传按钮代码html" />
     <MESSAGE value="轨迹显示新增时间选择及点的属性信息展示" />
-    <option name="LAST_COMMIT_MESSAGE" value="轨迹显示新增时间选择及点的属性信息展示" />
+    <MESSAGE value="将停留点判断放入了getPointEntities函数内" />
+    <MESSAGE value="增加温湿度显示界面" />
+    <MESSAGE value="温湿度控件添加图片" />
+    <MESSAGE value="温湿度数据" />
+    <MESSAGE value="添加获取Authorization认证码函数" />
+    <MESSAGE value="12.28" />
+    <option name="LAST_COMMIT_MESSAGE" value="12.28" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="254" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608640200199">
+    <state x="392" y="91" key="#Intentions" timestamp="1608888937341">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="254" y="87" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1474.864@62.0.1474.864" timestamp="1608640200199" />
+    <state x="392" y="91" key="#Intentions/62.0.1474.864@62.0.1474.864" timestamp="1608888937341" />
+    <state x="254" y="87" width="1089" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1608996263584">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="254" y="87" width="1089" height="714" key="#com.intellij.execution.impl.EditConfigurationsDialog/62.0.1474.864@62.0.1474.864" timestamp="1608996263584" />
+    <state x="530" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1609000709712">
+      <screen x="62" y="0" width="1474" height="864" />
+    </state>
+    <state x="530" y="179" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/62.0.1474.864@62.0.1474.864" timestamp="1609000709712" />
     <state width="849" height="466" key="DebuggerActiveHint" timestamp="1608647808085">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state width="849" height="466" key="DebuggerActiveHint/62.0.1474.864@62.0.1474.864" timestamp="1608647808085" />
-    <state x="581" y="187" key="FileChooserDialogImpl" timestamp="1608649865386">
+    <state x="581" y="187" key="FileChooserDialogImpl" timestamp="1608996251908">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="581" y="187" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1608649865386" />
-    <state width="1431" height="186" key="GridCell.Tab.0.bottom" timestamp="1608818923812">
+    <state x="581" y="187" key="FileChooserDialogImpl/62.0.1474.864@62.0.1474.864" timestamp="1608996251908" />
+    <state width="1431" height="187" key="GridCell.Tab.0.bottom" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
-    <state width="1431" height="186" key="GridCell.Tab.0.center" timestamp="1608818923811">
+    <state width="1431" height="187" key="GridCell.Tab.0.bottom/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.0.center" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1608818923811" />
-    <state width="1431" height="186" key="GridCell.Tab.0.left" timestamp="1608818923811">
+    <state width="1431" height="187" key="GridCell.Tab.0.center/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.0.left" timestamp="1609001139113">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1608818923811" />
-    <state width="1431" height="186" key="GridCell.Tab.0.right" timestamp="1608818923811">
+    <state width="1431" height="187" key="GridCell.Tab.0.left/62.0.1474.864@62.0.1474.864" timestamp="1609001139113" />
+    <state width="1431" height="187" key="GridCell.Tab.0.right" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1608818923811" />
-    <state width="1431" height="186" key="GridCell.Tab.1.bottom" timestamp="1608818923812">
+    <state width="1431" height="187" key="GridCell.Tab.0.right/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.1.bottom" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.1.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
-    <state width="1431" height="186" key="GridCell.Tab.1.center" timestamp="1608818923812">
+    <state width="1431" height="187" key="GridCell.Tab.1.bottom/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.1.center" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.1.center/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
-    <state width="1431" height="186" key="GridCell.Tab.1.left" timestamp="1608818923812">
+    <state width="1431" height="187" key="GridCell.Tab.1.center/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.1.left" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.1.left/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
-    <state width="1431" height="186" key="GridCell.Tab.1.right" timestamp="1608818923812">
+    <state width="1431" height="187" key="GridCell.Tab.1.left/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.1.right" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.1.right/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
-    <state width="1431" height="186" key="GridCell.Tab.2.bottom" timestamp="1608818923812">
+    <state width="1431" height="187" key="GridCell.Tab.1.right/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.2.bottom" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.2.bottom/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
-    <state width="1431" height="186" key="GridCell.Tab.2.center" timestamp="1608818923812">
+    <state width="1431" height="187" key="GridCell.Tab.2.bottom/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.2.center" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.2.center/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
-    <state width="1431" height="186" key="GridCell.Tab.2.left" timestamp="1608818923812">
+    <state width="1431" height="187" key="GridCell.Tab.2.center/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.2.left" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.2.left/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
-    <state width="1431" height="186" key="GridCell.Tab.2.right" timestamp="1608818923812">
+    <state width="1431" height="187" key="GridCell.Tab.2.left/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
+    <state width="1431" height="187" key="GridCell.Tab.2.right" timestamp="1609001139114">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state width="1431" height="186" key="GridCell.Tab.2.right/62.0.1474.864@62.0.1474.864" timestamp="1608818923812" />
+    <state width="1431" height="187" key="GridCell.Tab.2.right/62.0.1474.864@62.0.1474.864" timestamp="1609001139114" />
     <state x="179" y="193" width="985" height="478" key="MultipleFileMergeDialog" timestamp="1608819037415">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
@@ -184,17 +272,17 @@
       <screen x="62" y="0" width="1474" height="864" />
     </state>
     <state x="301" y="77" key="SettingsEditor/62.0.1474.864@62.0.1474.864" timestamp="1608650005344" />
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1608819057650">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2" timestamp="1609038673504">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1608819057650" />
-    <state x="604" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1608727871370">
+    <state x="392" y="165" key="Vcs.Push.Dialog.v2/62.0.1474.864@62.0.1474.864" timestamp="1609038673504" />
+    <state x="604" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1609031635246">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="604" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1474.864@62.0.1474.864" timestamp="1608727871370" />
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1608816212475">
+    <state x="604" y="345" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/62.0.1474.864@62.0.1474.864" timestamp="1609031635246" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup" timestamp="1608902321989">
       <screen x="62" y="0" width="1474" height="864" />
     </state>
-    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1608816212475" />
+    <state x="462" y="181" width="672" height="678" key="search.everywhere.popup/62.0.1474.864@62.0.1474.864" timestamp="1608902321989" />
   </component>
 </project>

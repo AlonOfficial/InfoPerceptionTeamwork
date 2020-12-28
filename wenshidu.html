@@ -38,6 +38,7 @@
     descriptionHtml += Wenshiduinfo;
     descriptionHtml+="</table>";
     localStorage.removeItem('data');
+
     //3.容器中添加点显示数据
     var entities = viewer.entities;
     let entity = new Cesium.Entity({
@@ -46,7 +47,7 @@
         show:true,
         position:Cesium.Cartesian3.fromDegrees(114.367349,30.5252),
         billboard:{
-            image: "img/温湿度传感器.png",
+            image: "img/wenshidu.png",
             scale: 0.2,
         },
         description:descriptionHtml
