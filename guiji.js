@@ -4,7 +4,7 @@ var getAutho = function (){
     $.ajax({
         type: "GET",
         async: false,
-        url: 'https://www.jsciot.com/wm-api/web/rest/authorization/authorize?appId=szyxy&appSecret=12345678',
+        url: 'https://api.jsciot.com/wm/web/rest/authorization/authorize?appId=szyxy&appSecret=12345678',
         success:function (res, textStatus){
             console.log(res);
             Autho = String(res.data.Authorization);
@@ -17,7 +17,7 @@ var getData = function (did, begin, end){
     var trace;
     $.ajax({
         type : "GET",
-        url : 'https://www.jsciot.com/wm-api/web/rest/v2/positionInfo/listAllRoundTrack?dids=' + did +
+        url : 'https://api.jsciot.com/wm/web/rest/v2/positionInfo/listAllRoundTrack?dids=' + did +
             '&orderByType=ASC&pageNo=1&pageSize=1000000&positionModes=1,2,3&processMode=1&showOriginalTrack=0' + '&utcBegin='+begin + '&utcEnd='+end,
         async : false,
 
