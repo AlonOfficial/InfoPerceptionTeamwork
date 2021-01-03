@@ -54,6 +54,8 @@
         //删除之前的轨迹
         viewer.dataSources.removeAll();
         viewer.entities.removeAll();
+        var startTime = $("#startTime").attr("value");
+        var endtime = $("#endTime").attr("value");
         //获取参数
         var did = selectdid.value;
         let utcBegin = String((new Date(startTime)).getTime());
