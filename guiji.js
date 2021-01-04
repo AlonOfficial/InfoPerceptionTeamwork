@@ -83,9 +83,9 @@ var getPointEntities = function (data){
     //3.补上最后一个点
     var end = points[points.length-1];
     var descriptionHtml ="<table>";
-    for ( var key in p)
+    for ( var key in end)
     {
-        descriptionHtml+="<tr>"+"<td>"+String(key)+"</td>"+"<td>"+String(p[key])+"</td></tr>";
+        descriptionHtml+="<tr>"+"<td>"+String(key)+"</td>"+"<td>"+String(end[key])+"</td></tr>";
     }
     let entity = new Cesium.Entity({
         id: end.id.toString(), //id一定要注意，entities里面其他entity的id不能相同。
@@ -97,7 +97,8 @@ var getPointEntities = function (data){
             show : true,
             pixelSize :  5,
             color : Cesium.Color.WHITE,
-        })
+        }),
+        description:descriptionHtml
     });
     entities.push(entity);
     return entities;

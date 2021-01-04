@@ -25,7 +25,7 @@
     <div id="loadingOverlay">
         <h1>Loading...</h1>
     </div>
-    <div id="toolbar">
+    <div id="toolbar" style="width: 20%;">
         <table class="infoPanel">
             <tbody>
                 <tr>
@@ -45,6 +45,10 @@
         var myDate = new Date();
         utcEnd = myDate.getTime().toString();
         utcBegin = (myDate.getTime() - 86400000).toString();//设置请求数据的开始时间为一天前
+
+        // //演示时所用时间信息
+        // utcEnd = (1608895765000+86400000).toString();
+        // utcBegin = '1608895765000';//设置请求数据的开始时间为一天前
         var did = '88010E2005002F5A';
 
         //用于隔离区的储存与调用
@@ -360,23 +364,8 @@
 
         }
 
-        //设置工具条宽度以竖直摆放按钮
-        document.getElementById("toolbar").style.width = "20%";
 
         Sandcastle.finishedLoading();
-
-        
-        //动态刷新函数，每隔20s重新请求最新数据
-        //freshID = setInterval(refresh(), refreshTime)
-        // function refresh() {
-        //     viewer.entities.removeAll();
-        //     viewer.dataSources.removeAll();
-        //     var myDate = new Date();
-        //     utcEnd = myDate.getTime();
-        //     utcBegin = (parseInt(myDate.getTime()) - 86400000).toString();
-        //     drawQuarantine();
-        //     drawRouteData();
-        // }
 
     </script>
 
